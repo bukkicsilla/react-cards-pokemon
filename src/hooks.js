@@ -15,7 +15,8 @@ const useAxios = (url) => {
     const res = await axios.get(`${url}${name}`);
     setResponses((responses) => [...responses, { ...res.data, id: uuid() }]);
   };
-  return [responses, addResponse];
+  const clear = () => setResponses([]);
+  return [responses, addResponse, clear];
 };
 
 /*function useAxios(keyInLS, baseUrl) {
